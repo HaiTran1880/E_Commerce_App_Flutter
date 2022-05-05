@@ -1,5 +1,7 @@
 import 'package:e_commmerce_app_flutter/components/default_button.dart';
 import 'package:e_commmerce_app_flutter/constants.dart';
+import 'package:e_commmerce_app_flutter/screens/sig-in/sig_in_screen.dart';
+import 'package:e_commmerce_app_flutter/screens/sign_up/sign_up_screen.dart';
 import 'package:e_commmerce_app_flutter/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -70,7 +72,7 @@ class Body extends StatelessWidget {
               SizedBox(height: getProportionateScreenHeight(100)),
               DefaultButton(text: "Continue", press: () {}),
               SizedBox(height: getProportionateScreenHeight(100)),
-              SignUp()
+              SignUp(context)
             ],
           ),
         ),
@@ -79,7 +81,7 @@ class Body extends StatelessWidget {
   }
 }
 
-Row SignUp() {
+Row SignUp(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
@@ -88,7 +90,9 @@ Row SignUp() {
         style: TextButton.styleFrom(
           textStyle: const TextStyle(fontSize: 20),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, SignUpScreen.routeName);
+        },
         child: const Text(
           'Sign up',
           style: TextStyle(color: kPrimaryColor),
