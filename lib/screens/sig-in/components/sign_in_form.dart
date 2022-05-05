@@ -1,6 +1,7 @@
 import 'package:e_commmerce_app_flutter/components/default_button.dart';
 import 'package:e_commmerce_app_flutter/constants.dart';
 import 'package:e_commmerce_app_flutter/screens/forgot_password_screen/forgot_password_screen.dart';
+import 'package:e_commmerce_app_flutter/screens/login_success/login_success.dart';
 import 'package:e_commmerce_app_flutter/screens/sig-in/sig_in_screen.dart';
 import 'package:e_commmerce_app_flutter/size_config.dart';
 import 'package:flutter/material.dart';
@@ -122,7 +123,9 @@ class _SignFormState extends State<SignForm> {
                   ],
                 ),
                 TextButton(
-                  onPressed: () => {print("Forgot Password")},
+                  onPressed: () => {
+                    Navigator.pushNamed(context, ForgotPasswordScreen.routeName)
+                  },
                   child: const Text("Forgot Password",
                       style: TextStyle(
                           decoration: TextDecoration.underline,
@@ -134,10 +137,12 @@ class _SignFormState extends State<SignForm> {
             DefaultButton(
                 text: "Continue",
                 press: () => {
-                      Navigator.pushNamed(
-                          context, ForgotPasswordScreen.routeName)
-                      // if (_formKey.currentState!.validate())
-                      //   {_formKey.currentState!.save()}
+                      if (_formKey.currentState!.validate())
+                        {
+                          _formKey.currentState!.save(),
+                          Navigator.pushNamed(
+                              context, LogInSuccessScreen.routeName)
+                        }
                     }),
           ],
         ));

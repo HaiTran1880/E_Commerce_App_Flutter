@@ -5,6 +5,8 @@ import 'package:e_commmerce_app_flutter/screens/splash/splash_screen.dart';
 import 'package:e_commmerce_app_flutter/theme.dart';
 import 'package:flutter/material.dart';
 
+import 'screens/profile/profile_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
